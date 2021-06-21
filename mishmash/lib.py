@@ -1,7 +1,7 @@
 import re
 from unidecode import unidecode
 # Example of stopwords
-STOPWORD = ['le', 'la', 'les', 'mais', 'où', 'et', 'donc', 'or', 'ni', 'car']
+STOPWORD = ('le', 'la', 'les', 'mais', 'où', 'et', 'donc', 'or', 'ni', 'car')
 
 
 class TextParser:
