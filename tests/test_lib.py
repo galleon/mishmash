@@ -1,4 +1,4 @@
-from mishmash.lib import TextParser
+from mishmash.lib import KittApi, TextParser
 
 DATA = ((
     "La liberté est pour la Science ce que l'air est pour l'animal.",
@@ -45,3 +45,8 @@ def test_parsing_flow():
     tp = TextParser()
     for x in DATA:
         assert tp.parsing_flow(x[0]) == x[2]
+
+
+def test_kitt_api_get_user_ide():
+    ka = KittApi()
+    assert ka.get_user_id() == 11764

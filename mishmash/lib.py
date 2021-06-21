@@ -1,5 +1,7 @@
 import re
 from unidecode import unidecode
+import requests
+
 # Example of stopwords
 STOPWORD = ('le', 'la', 'les', 'mais', 'où', 'et', 'donc', 'or', 'ni', 'car')
 
@@ -79,3 +81,31 @@ class TextParser:
         for func in flow_funcs:
             text = func(text)
         return text
+
+
+class KittApi:
+    """Let's hack Kitt"""
+    def __init__(self, camp=633):
+        self.url = "https://kitt.lewagon.com/api/v1/"
+        self.camp = camp
+        # https://kitt.lewagon.com/api/v1/camps/633/tickets/
+        # https://kitt.lewagon.com/api/v1/camps/633/tickets/new
+
+    def getTeacherAvatar(self):
+        pass
+
+    def get_login(self):
+        pass
+
+    def get_user_id(self):
+        req = requests.get(f"{self.url}/camps/{self.camp}/tickets/")
+        assert req.status_code == 200
+        result = req.text
+
+        pass
+
+    def create_new_ticket(
+            self,
+            by=3529,
+            message="This ticket has been automatically generated"):
+        pass
